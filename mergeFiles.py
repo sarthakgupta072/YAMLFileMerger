@@ -11,10 +11,6 @@ def mergeFiles(originalFile, *args, **kargs):
 	for arg in args:
 		with open(arg) as g:
 			data1 = yaml.load(g)
-
-	 	# key = data
-	 	# value = data1
-
 		for item1 in data1:
 			print("item1: ", item1)
 			if item1 in data:
@@ -23,18 +19,12 @@ def mergeFiles(originalFile, *args, **kargs):
 				for item2 in data1[item1]:
 					print("item2: ", item2)
 					if item2 in data[item1]:
-						# print("data[item1][item2]: ", data[item1][item2])
-						# print("")
-						# print("data1[item1][item2]: ", data1[item1][item2])
 						data[item1][item2].update(data1[item1][item2])
 						data1[item1][item2].update(data[item1][item2])
-						# print("if updated", data[item1][item2])
 					else:
 						data[item1].update(data1[item1])
-						print("else updated", data1[item1])
 			else:
 				data[item1].update(data1[item1])
-				print("bahaar waal else updated")
 
 
 		
